@@ -7,11 +7,20 @@ on:
 
 jobs:
   hello:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Show my machine
+        run: |
+          echo "Running on:"
+          hostname
+          echo "User:"
+          whoami
+          echo "Operating system:"
+          uname -a
 
       - name: Run Python
         run: python hello.py
